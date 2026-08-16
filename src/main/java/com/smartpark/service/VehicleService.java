@@ -1,6 +1,7 @@
 package com.smartpark.service;
 
 import com.smartpark.config.InvalidDataException;
+import com.smartpark.domain.VehicleTypeEnum;
 import com.smartpark.domain.dto.VehicleRequest;
 import com.smartpark.domain.dto.VehicleResponse;
 import com.smartpark.domain.entity.Vehicle;
@@ -26,6 +27,8 @@ public class VehicleService {
                     VEHICLE_ALREADY_REGISTERED + vehicleRequest.getLicensePlate()
             );
         }
+        System.out.println(vehicleRequest.getType());
+        VehicleTypeEnum.fromName(vehicleRequest.getType());
 
         Vehicle saveVehicle = vehicleRepository.save(vehicle);
 
